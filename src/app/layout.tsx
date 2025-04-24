@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'Fúria',
   description: 'Desafio Técnico Fúria',
   icons: {
-    icon: '/icon.webp',
+    icon: '/logo.svg',
   },
 };
 
