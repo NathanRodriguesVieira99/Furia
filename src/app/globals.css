@@ -116,6 +116,6 @@
   }
 
   body {
-    @apply bg-zinc-50 text-foreground;
+    @apply bg-[#27272A] text-foreground;
   }
 }
