@@ -59,7 +59,7 @@ export function LoginForm({
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'discord',
         options: {
-          redirectTo: `${window.location.origin}/protected`,
+          redirectTo: `${window.location.origin}/auth/callback?next=/protected`,
         },
       });
       if (error) throw error;
