@@ -1,30 +1,56 @@
 import { NextResponse } from 'next/server';
-// The client you created from the Server-Side Auth instructions
-import { createClient } from '@/lib/server';
+import { createClient } from '@/_lib/supabase/server';
+import type { NextRequest } from 'next/server';
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get('code');
-  // if "next" is in param, use it as the redirect URL
-  const next = searchParams.get('next') ?? '/';
+  const error = searchParams.get('error');
+  const errorDescription = searchParams.get('error_description');
+  const next = searchParams.get('next') ?? '/protected';
 
-  if (code) {
-    const supabase = await createClient();
-    const { error } = await supabase.auth.exchangeCodeForSession(code);
-    if (!error) {
-      const forwardedHost = request.headers.get('x-forwarded-host'); // original origin before load balancer
-      const isLocalEnv = process.env.NODE_ENV === 'development';
-      if (isLocalEnv) {
-        // we can be sure that there is no load balancer in between, so no need to watch for X-Forwarded-Host
-        return NextResponse.redirect(`${origin}${next}`);
-      } else if (forwardedHost) {
-        return NextResponse.redirect(`https://${forwardedHost}${next}`);
-      } else {
-        return NextResponse.redirect(`${origin}${next}`);
-      }
-    }
+  if (error) {
+    console.error('OAuth Error:', {
+      error,
+      errorDescription,
+      provider: 'discord',
+    });
+
+    return NextResponse.redirect(
+      `${origin}/login?error=oauth_failed&provider=discord`
+    );
   }
 
-  // return the user to an error page with instructions
-  return NextResponse.redirect(`${origin}/auth/error`);
+  if (!code) {
+    return NextResponse.redirect(`${origin}/login?error=no_code`);
+  }
+
+  const supabase = await createClient();
+
+  try {
+    const {
+      error: authError,
+      data: { session },
+    } = await supabase.auth.exchangeCodeForSession(code);
+
+    if (authError || !session) {
+      console.error('Session Exchange Error:', authError);
+      return NextResponse.redirect(`${origin}/login?error=session_error`);
+    }
+
+    console.log('User session created for:', session.user.email);
+
+    const forwardedHost = request.headers.get('x-forwarded-host');
+    const isLocalEnv = process.env.NODE_ENV === 'development';
+    const baseUrl = isLocalEnv
+      ? origin
+      : forwardedHost
+        ? `https://${forwardedHost}`
+        : origin;
+
+    return NextResponse.redirect(`${baseUrl}${next}`);
+  } catch (err) {
+    console.error('Unexpected Error in callback:', err);
+    return NextResponse.redirect(`${origin}/login?error=unexpected_error`);
+  }
 }
