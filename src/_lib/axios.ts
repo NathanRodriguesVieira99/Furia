@@ -1,7 +1,9 @@
 'use client';
 
 import axios from 'axios';
-
+/*
+base do axios para consumir alguma API
+*/
 export const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_KEY,
+  baseURL: process.env.ALGUMA_COISA,
 });
