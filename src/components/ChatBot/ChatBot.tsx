@@ -68,9 +68,8 @@ LÓGICA PRONTA FEITA COM AJUDA DE IA, POIS OS TUTORIAIS QUE SEGUI NÃO FUNCIONAV
       setIsLoading(false);
     }
   };
-  // grid-rows-[min-content_1fr_min-content] grid
   return (
-    <div className="mt-48 mr-8 flex items-center justify-center">
+    <div className="mt-48 hidden items-center justify-center md:hidden lg:ml-[-20px] lg:flex">
       <Card className="w-[400px]">
         <CardHeader>
           <CardTitle>Furia AI</CardTitle>
