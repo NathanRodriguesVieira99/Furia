@@ -1,6 +1,4 @@
-interface CardRootProps {
-  children: React.ReactNode;
-}
+import type { CardRootProps } from '@/_types';
 
 export const CardRoot = ({ children }: CardRootProps) => {
   return (

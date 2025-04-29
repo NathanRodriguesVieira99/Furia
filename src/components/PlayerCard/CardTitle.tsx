@@ -1,6 +1,4 @@
-interface CardTitleProps {
-  title: string;
-}
+import type { CardTitleProps } from '@/_types';
 
 export const CardTitle = ({ title }: CardTitleProps) => {
   return (
