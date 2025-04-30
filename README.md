@@ -2,22 +2,23 @@
 
 Esse projeto envolve a criação de um site para o desafio técnico da Furia, sendo uma aplicação responsiva e seguindo as melhores práticas eu me desafiei para reproduzir ao máximo meus conhecimentos. Com sistema de cadastro e login, landing page e ChatBot.
 
-## Tecnologias utilizadas:
+## ⚙️ Tecnologias utilizadas:
 
-#### Desenvolvimento:
+#### 💻 Desenvolvimento:
 
 - NextJs
 - Typescript
 
-#### Autenticação:
+#### ⚡ Autenticação:
 
 - Supabase
 
-#### UI/UX:
+#### 💅 UI/UX:
 
 - SupabaseUI
 - shadcnUI
 - TailwindCSS
+- Motion
 
 ## Como rodar o projeto:
 
@@ -30,7 +31,7 @@ git clone https://github.com/NathanRodriguesVieira99/Furia.git
 2- Instale as dependências
 
 ```bash
-pnpm add
+pnpm i
 ```
 
 3- Entre na pasta do projeto
