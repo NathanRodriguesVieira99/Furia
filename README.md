@@ -12,7 +12,6 @@ Esse projeto envolve a criação de um site para o desafio técnico da Furia, se
 #### Autenticação:
 
 - Supabase
--
 
 #### UI/UX:
 
@@ -85,3 +84,5 @@ npm i -g vercel
 4- Agora é só seguir as instruções
 
 ## 🔎 Link de acesso ao projeto
+
+https://furia-bay.vercel.app/protected
