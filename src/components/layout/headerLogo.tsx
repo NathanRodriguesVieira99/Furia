@@ -7,7 +7,7 @@ export const HeaderLogo = () => {
       <Link href="/">
         <Image
           className="m-4 cursor-pointer"
-          src="/logo.svg"
+          src="@/public/logo.svg"
           alt="Logo Furia"
           width={65}
           height={65}
