@@ -1,3 +1,5 @@
+'use client';
+
 import type { CardRootProps } from '@/_types';
 
 export const CardRoot = ({ children }: CardRootProps) => {

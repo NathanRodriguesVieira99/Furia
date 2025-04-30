@@ -1,3 +1,5 @@
+'use client';
+
 import type { CardContentProps } from '@/_types';
 
 export const CardContent = ({ children }: CardContentProps) => {
