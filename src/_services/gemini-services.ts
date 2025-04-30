@@ -5,7 +5,12 @@ export const FURIA_KNOWLEDGE = [
   {
     question: 'Quem são os jogadores atuais da FURIA?',
     answer:
-      'Elenco principal em 2025: arT (IGL), KSCERATO, yuurih, chelo, saffee (AWPer). Reservas: guerri. Coach: FalleN (Gabriel Toledo). Analista: TACO (Epitácio de Melo).',
+      'Elenco principal em 2025:  KSCERATO, yuurih,FalleN, Molodoy, Yekindar. Reservas: chelo, skullz. Coach: sidde',
+    sources: ['https://furia.gg/team', 'https://www.hltv.org/team/8297/furia'],
+  },
+  {
+    question: 'Quem são os jogadores mais recentes contratados da FURIA?',
+    answer: 'Molodoy e Yekindar',
     sources: ['https://furia.gg/team', 'https://www.hltv.org/team/8297/furia'],
   },
 
@@ -43,7 +48,7 @@ export const FURIA_KNOWLEDGE = [
   {
     question: 'Quem são os patrocinadores da FURIA em 2025?',
     answer:
-      'Principais patrocinadores: \n- Mercado Livre (principal) \n- HyperX \n- Betway \n- Red Bull \n- TIM',
+      'Principais patrocinadores: adidas, cruzeiro do sul virtual, pokerstars, redbull , lenovo e hellmans',
     sources: ['https://furia.gg/partners'],
   },
 
@@ -108,7 +113,6 @@ export function searchFuriaKnowledge(userQuestion: string): {
 
   const keywordMap: Record<string, string> = {
     jogador: 'Quem são os jogadores atuais da FURIA?',
-    elenco: 'Quem são os jogadores atuais da FURIA?',
     titulo: 'Quais títulos a FURIA venceu em 2024?',
     rating: 'Qual o rating do KSCERATO em 2025?',
     mapa: 'Qual o mapa mais forte da FURIA em 2025?',
