@@ -12,12 +12,19 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // Configurações base
   ...compat.extends(
     'next/core-web-vitals',
-    'next/typescript',
+    'plugin:testing-library/react',
     'plugin:jest-dom/recommended'
   ),
+
+  // Configurações  para testes
   {
+    files: [
+      '**/__tests__/**/*.{js,jsx,ts,tsx}',
+      '**/*.{spec,test}.{js,jsx,ts,tsx}',
+    ],
     plugins: {
       'testing-library': testingLibrary,
       'jest-dom': jestDom,
@@ -26,12 +33,12 @@ const eslintConfig = [
       'testing-library/await-async-queries': 'error',
       'testing-library/no-await-sync-queries': 'error',
       'testing-library/no-debugging-utils': 'warn',
+      '@typescript-eslint/no-unused-vars': 'off',
+      'jest-dom/prefer-checked': 'error',
+      'jest-dom/prefer-enabled-disabled': 'error',
+      'jest-dom/prefer-required': 'error',
+      'jest-dom/prefer-to-have-attribute': 'error',
     },
-    files: [
-      '**/__tests__/**/*.{js,jsx,ts,tsx}',
-      '**/*.{spec,test}.{js,jsx,ts,tsx}',
-    ],
-    ...testingLibrary.configs['flat/react'],
   },
 ];
 
