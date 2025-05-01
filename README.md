@@ -46,6 +46,10 @@ cd Furia
 pnpm dev
 ```
 
+
+5- Agora é só seguir o fluxo de cadastro
+
+
 ## 🚀 Build e Deploy:
 
 O projeto está configurado para o deploy automático na **Vercel**. Siga instruções para realizar o build e o deploy.
