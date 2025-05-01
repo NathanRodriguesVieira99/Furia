@@ -1,6 +1,6 @@
 'use client';
 
-import { Card } from '@/components/PlayerCard';
+import { Card } from '@/components/Card';
 
 // Dados mockados dos jogadores da FURIA
 const mockPlayers = [
