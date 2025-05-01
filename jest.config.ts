@@ -1,5 +1,3 @@
-// configuração do Jest com foco em performance
-
 import type { Config } from 'jest';
 import nextJest from 'next/jest.js';
 
@@ -20,8 +18,25 @@ const config: Config = {
     customExportConditions: [''],
   },
 
+  // Configurações de performance
   workerIdleMemoryLimit: '512MB',
   maxWorkers: '80%',
+
+  // Configuração do JUnit
+  reporters: [
+    'default',
+    [
+      'jest-junit',
+      {
+        outputDirectory: 'test-results',
+        outputName: 'junit.xml',
+        classNameTemplate: '{classname}',
+        titleTemplate: '{title}',
+        ancestorSeparator: ' > ',
+        includeConsoleOutput: true,
+      },
+    ],
+  ],
 };
 
 export default createJestConfig(config);
