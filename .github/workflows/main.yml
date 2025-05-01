@@ -36,10 +36,16 @@ jobs:
         run: pnpm install
 
       - name: Testing Running
-        run: pnpm test --coverage
+        run: pnpm test --coverage --reporters=jest-junit
 
       - name: Upload Coverage Reports to CodeCov
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: NathanRodriguesVieira99/Furia
+
+      - name: Upload Test Results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
