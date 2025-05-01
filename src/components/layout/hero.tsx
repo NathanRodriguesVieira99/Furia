@@ -1,10 +1,19 @@
+'use client';
+
+import { motion } from 'motion/react';
 import Image from 'next/image';
 
 export const Hero = () => {
   return (
-    <div className="flex w-full items-center justify-center p-4">
+    <motion.div
+      className="flex w-full items-center justify-center p-4"
+      initial={{ opacity: 0, x: -80 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -80 }}
+      transition={{ duration: 0.6, delay: 0.4 }}
+    >
       <Image
-        src="/new_hero.png"
+        src="/hero2.webp"
         quality={90}
         loading="lazy"
         alt="Jogadores da Furia de CS"
@@ -12,6 +21,6 @@ export const Hero = () => {
         width={1100}
         height={1000}
       />
-    </div>
+    </motion.div>
   );
 };
