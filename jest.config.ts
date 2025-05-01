@@ -21,22 +21,6 @@ const config: Config = {
   // Configurações de performance
   workerIdleMemoryLimit: '512MB',
   maxWorkers: '80%',
-
-  // Configuração do JUnit
-  reporters: [
-    'default',
-    [
-      'jest-junit',
-      {
-        outputDirectory: 'test-results',
-        outputName: 'junit.xml',
-        classNameTemplate: '{classname}',
-        titleTemplate: '{title}',
-        ancestorSeparator: ' > ',
-        includeConsoleOutput: true,
-      },
-    ],
-  ],
 };
 
 export default createJestConfig(config);
