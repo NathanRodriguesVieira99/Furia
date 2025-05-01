@@ -14,7 +14,5 @@ describe('HeroText component tests', () => {
     expect(heroTextParagraphI).toBeInTheDocument();
     expect(heroTextParagraphII).toBeInTheDocument();
     expect(furiaSpans.length).toBe(2);
-
-    view.debug();
   });
 });
