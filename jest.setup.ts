@@ -1,15 +1,13 @@
 // setup da React Testing Library
 import '@testing-library/jest-dom';
 
-// Limpeza do DOM a cada teste
-import { cleanup } from '@testing-library/react';
+// limpa todos os mocks a cada teste
 afterEach(() => {
-  cleanup();
-  jest.clearAllMocks(); // limpa todos os mocks
+  jest.clearAllMocks();
 });
 
 // setup do MSW
-import { server } from '@/tests/mocks/server';
+import { server } from '@/_tests/mocks/server';
 beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
