@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 /*
 LÓGICA PRONTA FEITA COM AJUDA DE IA, POIS OS TUTORIAIS QUE SEGUI NÃO FUNCIONAVAM DE FORMA ALGUMA 
 */
