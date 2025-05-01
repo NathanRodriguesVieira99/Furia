@@ -15,7 +15,7 @@ export const HeroText = () => {
       {...animation}
       transition={{ duration: 0.4, delay: 0.3 }}
     >
-      <motion.h2 className="mt-3 leading-8">
+      <motion.h2 className="mt-3 leading-8" data-testid="hero_text_title">
         {' '}
         O seu hub definitivo para acompanhar tudo sobre a{' '}
         <motion.span
@@ -30,6 +30,7 @@ export const HeroText = () => {
         className="mt-6 w-full p-2 leading-8.5"
         {...animation}
         transition={{ duration: 0.6, delay: 0.5 }}
+        data-testid="hero_text_paragraphI"
       >
         Esports no cenário competitivo de CS2 em 2025! Desde emocionantes
         clutches do KSCERATO até as estratégias ousadas do arT, nosso site é o
@@ -46,6 +47,7 @@ export const HeroText = () => {
         className="mt-1 w-full p-2 leading-8.5"
         {...animation}
         transition={{ duration: 0.6, delay: 0.4 }}
+        data-testid="hero_text_paragraphII"
       >
         {' '}
         Aqui, você não só acompanha os melhores momentos do time, mas também
