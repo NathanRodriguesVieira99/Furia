@@ -37,3 +37,9 @@ jobs:
 
       - name: Testing Running
         run: pnpm test --coverage
+
+      - name: Upload Coverage Reports to CodeCov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: NathanRodriguesVieira99/Furia
