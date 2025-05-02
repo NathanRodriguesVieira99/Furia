@@ -59,7 +59,7 @@ export function LoginForm({
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'discord',
         options: {
-          redirectTo: `${window.location.origin}/auth/callback?next=/protected`,
+          redirectTo: 'https://furia-bay.vercel.app/auth/callback',
         },
       });
       if (error) throw error;
