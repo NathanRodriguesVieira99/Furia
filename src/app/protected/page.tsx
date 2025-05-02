@@ -6,21 +6,21 @@ import { PlayersCard } from '@/components/layout/playersCard';
 import { ChatBot } from '@/components/ChatBot/ChatBot';
 
 export default async function ProtectedPage() {
-  const supabase = await createClient();
+    const supabase = await createClient();
 
-  const { data, error } = await supabase.auth.getUser();
-  if (error || !data?.user) {
-    redirect('/auth/login');
-  }
+    const { data, error } = await supabase.auth.getUser();
+    if (error || !data?.user) {
+        redirect('/auth/login');
+    }
 
-  return (
-    <main className="container mx-auto">
-      <div className="fixed z-20 ml-[73%] flex items-start justify-start">
-        <ChatBot />
-      </div>
-      <Hero />
-      <HeroText />
-      <PlayersCard />
-    </main>
-  );
+    return (
+        <main className="container mx-auto">
+            <div className="fixed z-20 ml-[73%] flex items-start justify-start">
+                <ChatBot />
+            </div>
+            <Hero />
+            <HeroText />
+            <PlayersCard />
+        </main>
+    );
 }

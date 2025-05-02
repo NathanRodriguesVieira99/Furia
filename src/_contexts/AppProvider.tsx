@@ -4,9 +4,9 @@
 import ReactQueryProviders from './providers/react-query-provider';
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <ReactQueryProviders>{children}</ReactQueryProviders>
-    </>
-  );
+    return (
+        <>
+            <ReactQueryProviders>{children}</ReactQueryProviders>
+        </>
+    );
 }

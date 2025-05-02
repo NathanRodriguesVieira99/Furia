@@ -1,47 +1,45 @@
 name: Deploy Workflow
 
 on:
-  push:
-  pull_request:
+    push:
+    pull_request:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v3
 
-      - name: NodeJs Setup
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20.x'
+            - name: NodeJs Setup
+              uses: actions/setup-node@v3
+              with:
+                  node-version: '20.x'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+            - name: Install pnpm
+              run: npm install -g pnpm
 
-      - name: Cache pnpm modules
-        uses: actions/cache@v3
-        id: pnpm-cache
-        with:
-          path: |
-            ~/.pnpm-store
-            node_modules
-            .pnpm
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
+            - name: Cache pnpm modules
+              uses: actions/cache@v3
+              id: pnpm-cache
+              with:
+                  path: |
+                      ~/.pnpm-store
+                      node_modules
+                      .pnpm
+                  key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-
 
-      - name: Installing Dependencies
-        if: steps.pnpm-cache.outputs.cache-hit != 'true'
-        run: pnpm install
+            - name: Installing Dependencies
+              if: steps.pnpm-cache.outputs.cache-hit != 'true'
+              run: pnpm install
 
-      - name: Testing Running
-        run: pnpm test --coverage 
+            - name: Testing Running
+              run: pnpm test --coverage
 
-      - name: Upload Coverage Reports to CodeCov
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          slug: NathanRodriguesVieira99/Furia
-
-     
+            - name: Upload Coverage Reports to CodeCov
+              uses: codecov/codecov-action@v5
+              with:
+                  token: ${{ secrets.CODECOV_TOKEN }}
+                  slug: NathanRodriguesVieira99/Furia

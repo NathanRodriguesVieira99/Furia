@@ -46,9 +46,7 @@ cd Furia
 pnpm dev
 ```
 
-
 5- Agora é só seguir o fluxo de cadastro
-
 
 ## 🚀 Build e Deploy:
 

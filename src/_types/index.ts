@@ -1,20 +1,20 @@
 export interface CardImageProps {
-  src: string;
-  alt: string;
+    src: string;
+    alt: string;
 }
 
 export interface CardDescriptionProps {
-  description: string;
+    description: string;
 }
 
 export interface CardContentProps {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }
 
 export interface CardRootProps {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }
 
 export interface CardTitleProps {
-  title: string;
+    title: string;
 }

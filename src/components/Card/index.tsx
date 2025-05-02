@@ -5,9 +5,9 @@ import { CardImage } from './CardImage';
 import { CardDescription } from './CardDescription';
 
 export const Card = {
-  Root: CardRoot,
-  Content: CardContent,
-  Title: CardTitle,
-  Description: CardDescription,
-  Image: CardImage,
+    Root: CardRoot,
+    Content: CardContent,
+    Title: CardTitle,
+    Description: CardDescription,
+    Image: CardImage,
 };
